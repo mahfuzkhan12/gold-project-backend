@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Customer\RegisterRequest;
 use App\Models\Customer;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -14,24 +15,23 @@ use Illuminate\Support\Facades\Cache;
 class CustomerAuthController extends Controller
 {
     // Register New Customer
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:customers',
-            'phone' => 'nullable|string|unique:customers',
-            'password' => 'required|string|min:6',
-        ]);
+        // $validatedData = $request->validate([
+        //     'name' => 'required|string',
+        //     'email' => 'required|email|unique:customers',
+        //     'phone' => 'nullable|string|unique:customers',
+        //     'password' => 'required|string|min:6',
+        // ]);
     
         $customer = Customer::create([
-            'name' => $request->name,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->password), 
         ]);
-    
+
         event(new Registered($customer)); // Send email verification
     
         return response()->json(['message' => 'Registered successfully. Please verify your email.']);
