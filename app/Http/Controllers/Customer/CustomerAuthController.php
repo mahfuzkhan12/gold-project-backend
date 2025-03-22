@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Cache;
 class CustomerAuthController extends Controller
 {
     // Register New Customer
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|string',
-        //     'email' => 'required|email|unique:customers',
-        //     'phone' => 'nullable|string|unique:customers',
-        //     'password' => 'required|string|min:6',
-        // ]);
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email|unique:customers',
+            'phone' => 'nullable|string|unique:customers',
+            'password' => 'required|string|min:6',
+        ]);
     
         $customer = Customer::create([
             'first_name' => $request->first_name,

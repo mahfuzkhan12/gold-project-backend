@@ -12,7 +12,8 @@ class Customer extends Authenticatable
     use HasFactory, HasApiTokens, Notifiable;
 
     protected $fillable = [
-        'name', 
+        'first_name', 
+        'last_name', 
         'email', 
         'phone', 
         'password', 
@@ -22,7 +23,6 @@ class Customer extends Authenticatable
         'phone_verified_at',
         'country',
     ];
-
     protected $hidden = [
         'password', 
         'remember_token',
@@ -31,6 +31,6 @@ class Customer extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
         'email_verified_at' => 'datetime',
-        'phone_verified_at' => 'datetime',
+        'phone_verified_at' => 'datetime'
     ];
 }
