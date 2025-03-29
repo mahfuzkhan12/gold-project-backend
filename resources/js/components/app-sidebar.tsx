@@ -4,19 +4,39 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, FolderKanban } from 'lucide-react';
+import { Folder, LayoutGrid, FolderKanban, UserIcon, BadgeDollarSign, SettingsIcon } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
-        href: '/dashboard',
+        href: '/admin/dashboard',
         icon: LayoutGrid,
     },
     {
         title: 'Products',
-        href: '/products',
+        href: '/admin/products',
         icon: FolderKanban,
+    },
+    {
+        title: 'Orders',
+        href: '/admin/orders',
+        icon: Folder,
+    },
+    {
+        title: 'Customers',
+        href: '/admin/customers',
+        icon: UserIcon,
+    },
+    {
+        title: 'Transactions',
+        href: '/admin/transactions',
+        icon: BadgeDollarSign,
+    },
+    {
+        title: 'Settings',
+        href: '/admin/settings',
+        icon: SettingsIcon,
     },
 ];
 
@@ -40,7 +60,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href="/dashboard" prefetch>
+                            <Link href="/admin/dashboard" prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>
