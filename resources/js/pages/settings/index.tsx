@@ -9,15 +9,15 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: '/admin/dashboard',
     },
     {
-        title: 'Transactions',
-        href: '/transactions',
+        title: 'Settings',
+        href: '/settings',
     },
 ];
 
 export default function index() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Transaction" />
+            <Head title="Settings" />
         </AppLayout>
     )
 }

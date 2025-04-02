@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CustomersController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\TransactionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,11 @@ Route::prefix("/customers")->group(function() {
 Route::prefix("/transactions")->group(function() {
     
     Route::get('/', [TransactionsController::class, 'index'])->name('transactions.index');
+
+});
+
+Route::prefix("/settings")->group(function() {
+    
+    Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
 
 });

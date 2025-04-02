@@ -158,3 +158,20 @@
         @apply bg-background text-foreground;
     }
 }
+
+
+body {
+    font-size: 14px;
+    font-weight: 400;
+}
+.table-grid-row {
+    grid-template-columns: 40px 60px calc(100% - 570px) 100px 110px 160px 100px;
+}
+.td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.td.left {
+    justify-content: start;
+}
